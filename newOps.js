@@ -130,3 +130,63 @@ const print = function ({ pName, price }) {
 };
 
 print(data);
+
+//* ======================================================
+//*  DESTRUCTURING (ARRAY)
+//* ======================================================
+const names = ["Ahmet", "Mehmet", "İsmet", "Saffet"];
+
+//? Klasik
+const ismet = names[2];
+console.log(ismet);
+
+const [ahmo, , ismo, safo] = names;
+
+console.log(ahmo, ismo, safo);
+
+//*======================================================
+//*  REST (...)
+//* ======================================================
+
+//? REST operatoru kullanici tarafindan girilen degerleri dizi
+//? icerisine konumlandirir. Cesitli kullanim alanlari vardir.
+
+//! 1- Bir dizi veya object'deki bazi degerlerden geri kalanlarini
+//!    ayri dizi yada objelere kopyalanmasini saglayabilir.
+
+//* REST: Array
+const araclar = ["bmw", "merso", "ferarri", "rover", "lambo"];
+
+const [araba1, araba2, araba3, ...geriKalanlar] = araclar;
+console.log(araba1);
+console.log(geriKalanlar);
+
+//* REST: Object
+
+const kisi = {
+  ad: "Canan",
+  soyad: "Cano",
+  yas: 33,
+  meslek: "tester",
+};
+
+const { meslek, yas, ...isim } = kisi;
+
+console.log(meslek, yas);
+console.log(isim);
+console.log(kisi);
+
+//! 2- Bir fonksiyonun argumanlarini diziye cevirmek icin kullanilabilir.
+
+const topla = (a, b) => a + b;
+
+console.log("SONUC:", topla(2, 5, 10, 4));
+
+//? REST (...) ile non-iterable olan sayilari iterable hale (diziye)
+//? cevirmiş olduk.
+
+const toplaminiAl = (...sayilar) => {
+  console.log(sayilar);
+  return sayilar.reduce((t, v) => t + v, 0);
+};
+console.log("SONUC:", toplaminiAl(2, 5, 10, 4, 6, 8));
