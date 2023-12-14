@@ -207,3 +207,38 @@ console.log(tasitlar[0][1]);
 
 const tasitlar1 = [...karaAraclari, "Kamyon", ...ucanAraclar];
 console.log(tasitlar1);
+
+const cumle = "Olmak ya da olmamak";
+
+const karakter = [...cumle];
+console.log(karakter);
+console.log(cumle);
+
+console.log("MAX:", Math.max(1, 3, 4, -1, 4));
+const rakamlar = [23, 45, 66, 77, 12, -1];
+
+//? MATH.MIN
+console.log("MIN:", Math.min(...rakamlar));
+
+//? Array Copy
+const myNumbers = [4, 5, 6, [11, 22]];
+const herNumbers = [1, 2, 3, ...myNumbers];
+const hisNumbers = [...herNumbers];
+
+console.log(herNumbers, myNumbers);
+console.log(hisNumbers);
+
+hisNumbers.push(7);
+myNumbers.push(77);
+
+console.log("MY:", myNumbers);
+console.log("HER:", herNumbers);
+console.log("HIS:", hisNumbers);
+
+myNumbers[3][1] = 44; //? spread kullanılsa dahi nested olan alanlar deep copy olmaz.
+
+//? Sıg Kopyalama
+const theirNumbers = hisNumbers;
+
+theirNumbers.push(8);
+console.log(theirNumbers, hisNumbers);
