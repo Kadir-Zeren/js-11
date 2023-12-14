@@ -242,3 +242,18 @@ const theirNumbers = hisNumbers;
 
 theirNumbers.push(8);
 console.log(theirNumbers, hisNumbers);
+
+//? Object copying
+
+const firstObj = { a: 1, b: 2, c: 3 };
+const secondObj = { a: 2, d: 3, c: 4 };
+
+const copiedFirstObj = { ...firstObj };
+console.log(copiedFirstObj);
+
+copiedFirstObj.a = 44;
+//? nesting olmadigi icin deep copy gibi davranir.
+console.log(copiedFirstObj, firstObj);
+
+const combinedObjs = { ...secondObj, ...firstObj };
+console.log(combinedObjs);
